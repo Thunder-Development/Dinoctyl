@@ -1,10 +1,8 @@
-
 ![Heliactyl](https://cdn.discordapp.com/attachments/881207010417315861/949706607497977976/heliactyl.png)
 
 <hr>
 
 # Heliactyl • The modern client panel for Pterodactyl
-We're back on GitHub, new Heliactyl versions are releasing soon.
 
 All features:
 - Resource Management (Use it to create servers, etc)
