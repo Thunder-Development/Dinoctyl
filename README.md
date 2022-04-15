@@ -23,10 +23,6 @@ All features:
 We cannot force you to keep the "Powered by Heliactyl" in the footer, but please consider keeping it. It helps getting more visibility to the project and so getting better. We won't do technical support for installations without the notice in the footer. We may DMCA the website in certain conditions.
 Please do keep the footer though.
 
-# Discord Server
-
-[Click here to join](https://discord.gg/CSbcjeZgKM)
-
 <hr>
 
 # Install Guide
