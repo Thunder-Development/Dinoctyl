@@ -63,7 +63,7 @@
             </div>
             </div>
                                     <script>
-                                        fetch("https://heliactylcp.github.io/panel/")
+                                        fetch("https://ukrao.host/heliactyl/api/v2/version.html")
                                             .then(res => Promise.resolve(res.json()).then(ver => {
                                                 let currentver = "<%= settings.version.replace(/"/g, `\\\\"`) %>";
                                                 if (ver.version == currentver) {
@@ -82,7 +82,7 @@
                     <h4 class="card-title">Heliactyl Information</h4>
                     <form class="forms-sample">
                       <div class="form-group">
-                      <a href="https://github.com/HeliactylCP/panel/" class="btn btn-primary btn-lg">View latest version</a> <a href="https://discord.gg/CSbcjeZgKM" class="btn btn-primary btn-lg">Get support</a>
+                      <a href="https://gitlab.com/heliactyl/panel/-/tree/master" class="btn btn-primary btn-lg">View latest version</a> <a href="https://discord.gg/CSbcjeZgKM" class="btn btn-primary btn-lg">Get support</a>
                     </form>
                   </div>
                 </div>
