@@ -1,9 +1,8 @@
 //
-// Heliactyl 12.1, Codename Kyiv
+// Heliactyl 12.3, Codename Rubik
 // 
 //  * Copyright Sryden UK 2022
 //  * Please read the "License" file
-//  * #SupportUkraine
 //
 
 "use strict";
