@@ -30,7 +30,7 @@
                 <% } else if (req.query.err == "PREMIUMLOCATION") { %>
                     Please select a location.
                 <% } else if (req.query.err == "TOOLITTLECOINS") { %>
-                    There was an unknown backend error while attempting to create the server.
+                    You do not have enough coins to create a server
                 <% } else if (req.query.err == "MUSTCOMPLETECAPTCHA") { %>
                     You must complete the captcha to prove you are human!
                 <% } else if (req.query.err == "INVALIDCAPTCHARESPONSE") { %>
@@ -78,23 +78,23 @@
                   <div class="card-body">
                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="InputName">Server Name</label>
+                        <label for="InputName">Server Name:</label>
                         <input style="border-radius: 15px; padding: 8px;" type="text" class="form-control" id="InputName" placeholder="My Server">
                       </div>
                       <div class="form-group">
-                        <label for="InputCPU">CPU</label>
+                        <label for="InputCPU">CPU (Cores):</label>
                         <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputCPU" placeholder="1">
                       </div>
                       <div class="form-group">
-                        <label for="InputRAM">RAM</label>
+                        <label for="InputRAM">RAM (GBs):</label>
                         <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputRAM" placeholder="2">
                       </div>
                       <div class="form-group">
-                        <label for="InputDisk">Disk</label>
+                        <label for="InputDisk">Disk (GBs):</label>
                         <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputDisk" placeholder="40">
                       </div>
                       <div class="form-group">
-                        <label for="InputLoc">Location</label><BR>
+                        <label for="InputLoc">Location:</label><BR>
                         <select class="btn btn-secondary dropdown-toggle" style="background-color: #2a3038; border: 1px solid #2c2e33; color: #e4eaec; border-radius: 15px; padding: 8px;" id="InputLoc">
                           <% for (let [name, value] of Object.entries(settings.api.client.locations)) { %>
                             <option value="<%= name %>"><%= value.name %></option>
@@ -102,7 +102,7 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="InputEgg">Egg</label><BR>
+                        <label for="InputEgg">Egg:</label><BR>
                         <select class="btn btn-secondary dropdown-toggle" style="background-color: #2a3038; border: 1px solid #2c2e33; color: #e4eaec; border-radius: 15px; padding: 8px;" id="InputEgg">
                           <% for (let [name, value] of Object.entries(settings.api.client.eggs)) { %>
                             <option value="<%= name %>"><%= value.display %></option>
@@ -110,6 +110,7 @@
                         </select>
                       </div>
                       <a role="button" id="create-btn" class="btn btn-primary btn-lg" href="javascript: submitNew()">Deploy Server</a>
+                      <br><br><p style="text-muted">To create this server, it will cost <code style="color: #007fcc" ><%= settings.servercreation.cost %> coins</code>!</p>
                     </form>
                   </div>
                 </div>
