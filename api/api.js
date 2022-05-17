@@ -7,7 +7,6 @@ const NodeCache = require( "node-cache" );
 const Queue = require("../managers/Queue.js");
 const myCache = new NodeCache({ deleteOnExpire: true, stdTTL: 59 });
 const log = require('../misc/log')
-const verifyCaptchaResponse = require('../misc/verifyCaptchaResponse')
 
 module.exports.load = async function (app, db) {
   app.get("/api", async (req, res) => {
@@ -275,20 +274,10 @@ app.post("/api/createcoupon", async (req, res) => {
     if (!coins || !req.query.id) return res.redirect(`/gift?err=MISSINGFIELDS`);
     if (req.query.id.includes(`${req.session.userinfo.id}`)) return res.redirect(`/gift?err=CANNOTGIFTYOURSELF`)
 
-    const captcha = req.query.captcha
-    if (!captcha) {
-      return res.redirect(`/gift?err=MUSTCOMPLETECAPTCHA`)
-    }
 
     if (coins < 1) return res.redirect(`/gift?err=TOOLOWCOINS`)
 
     queue.addJob(async (cb) => {
-
-      const verified = await verifyCaptchaResponse(captcha)
-      if (!verified) {
-        cb()
-        return res.redirect(`/gift?err=INVALIDCAPTCHARESPONSE`)
-      }
 
       const usercoins = await db.get(`coins-${req.session.userinfo.id}`)
       const othercoins = await db.get(`coins-${req.query.id}`)
