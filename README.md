@@ -101,8 +101,8 @@ Installing [pm2](https://github.com/Unitech/pm2):
 - Run `npm install pm2 -g` on the vps
 
 Starting The Dashboard in Background:
-- Change directory to your Heliactyl Files Using `cd` command
-,Example:- `cd /home/user/dash-files` 
+- Change directory to your Heliactyl Files Using `cd` command, 
+Example:- `cd /home/user/dash-files` 
 - To Start The App, Run `pm2 start index.js --name "heliactyl"`
 - To View Logs, Run `pm2 logs heliactyl`
 
@@ -113,6 +113,8 @@ Making the Dashboard Run on Startup:
   Running `pm2 startup` and `pm2 save`
 - Note: Supported Init Systems are `systemd`, `upstart`, `launchd`, `rc.d`
 - To Remove Your Dashboard Running on Startup, Run `pm2 unstartup`
+
+To Stop The Dashboard Which is running, Use `pm2 stop heliactyl`
 # Legacy Deprecation Notice
 
 Heliactyl v6, v7, v8, v9, v10, v11 is now deprecated as listed in our Discord and should not be used.
