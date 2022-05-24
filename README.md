@@ -114,7 +114,7 @@ Making the Dashboard Run on Startup:
 - Note: Supported Init Systems are `systemd`, `upstart`, `launchd`, `rc.d`
 - To Remove Your Dashboard Running on Startup, Run `pm2 unstartup`
 
-To Stop The Dashboard Which is running, Use `pm2 stop heliactyl`
+To Stop The Dashboard Which is running in background, Use `pm2 stop heliactyl`
 # Legacy Deprecation Notice
 
 Heliactyl v6, v7, v8, v9, v10, v11 is now deprecated as listed in our Discord and should not be used.
