@@ -96,6 +96,23 @@ Move to a newer Heliactyl v12 release:
 4. Remove settings.json and database.sqlite
 5. Unzip the zip with your old settings.json and database.sqlite
 
+# Running In Background And on Startup
+Installing [pm2](https://github.com/Unitech/pm2):
+- Run `npm install pm2 -g` on the vps
+
+Starting The Dashboard in Background:
+- Change directory to your Heliactyl Files Using `cd` command
+Example:- `cd /home/user/dash-files` 
+- To Start The App, Run `pm2 start index.js --name "heliactyl"`
+- To View Logs, Run `pm2 logs heliactyl`
+
+Making the Dashboard Run on Startup:
+- Make Sure Your Dashboard is running in the background with the help of [pm2](https://github.com/Unitech/pm2)
+- You can check if your app is running in background with `pm2 list`
+- Once You Confirmed That your app us running in background, You Can Generate Startup script by
+  Running `pm2 startup` and `pm2 save`
+- Note: Supported Init Systems are `systemd`, `upstart`, `launchd`, `rc.d`
+- To Remove Your Dashboard Running on Startup, Run `pm2 unstartup`
 # Legacy Deprecation Notice
 
 Heliactyl v6, v7, v8, v9, v10, v11 is now deprecated as listed in our Discord and should not be used.
