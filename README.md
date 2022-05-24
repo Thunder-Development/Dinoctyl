@@ -102,7 +102,7 @@ Installing [pm2](https://github.com/Unitech/pm2):
 
 Starting The Dashboard in Background:
 - Change directory to your Heliactyl Files Using `cd` command
-Example:- `cd /home/user/dash-files` 
+,Example:- `cd /home/user/dash-files` 
 - To Start The App, Run `pm2 start index.js --name "heliactyl"`
 - To View Logs, Run `pm2 logs heliactyl`
 
