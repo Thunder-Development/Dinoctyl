@@ -1,18 +1,25 @@
 {
-  "version": "12.3.1",
-  "build": "21",
+  "version": "12.5.0",
+  "name": "Heliactyl",
+  "letter": "H",
   "defaulttheme": "default",
   "website": {
-    "port": 8000,
+    "port": 25000,
     "secret": "Default Secret (Change this to any string you want)"
   },
   "pterodactyl": {
-    "domain": "Pterodactyl URL",
-    "key": "Pterodactyl API Key"
+    "domain": "https://panel.example.com",
+    "key": "example"
   },
   "linkvertise": {
     "userid": "10000",
-    "coins": 2
+    "coins": 5
+  },
+  "stripe": {
+    "enabled": true,
+    "note": "The key is the stripe API key and the coins is the amount per £1. If the stripe API key is invalid and stripe purchases are enabled, Heliactyl will crash when attempting to do transactions.",
+    "key": "100000000000000",
+    "coins": 100
   },
   "database": "sqlite://database.sqlite",
   "api": {
@@ -65,9 +72,9 @@
       },
       "oauth2": {
         "_comment": "Go to https://discord.dev/ and create an application to set these up.",
-        "id": "ID",
-        "secret": "Secret",
-        "link": "http://example.com",
+        "id": "example",
+        "secret": "example",
+        "link": "https://client.example.com",
         "callbackpath": "/callback",
         "prompt": true,
         "ip": {
