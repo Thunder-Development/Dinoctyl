@@ -35,16 +35,6 @@
               <% } %>
             <% } %>
             <div class="row">
-                <div class="col-md-12">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Actions</h4>
-                      <a class="btn btn-success btn-lg" style="border-radius: 15px;" href="../servers/new">Deploy Server</a> <a class="btn btn-primary btn-lg" href="../updateinfo">Refresh Server List</a>
-                    </div>
-                  </div>
-                </div>
-             </div><br>
-            <div class="row">
               <% if (pterodactyl.relationships.servers.data.length == 0) { %>
               <% } else { %>
               <% for (let i = 0, len = pterodactyl.relationships.servers.data.length; i < len; i++) { %>                
@@ -68,6 +58,17 @@
                 </div>
               <% } %>
            <% } %>
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+<br><br><br><br><center>
+<a class="button2" href="../servers/new" onclick="this.classList.toggle('button2--loading')"><span class="button2__text">+</span></a>
+<br><br><br><br><br><br>
+</center>
+                      </form>
+                    </div>
+                  </div>
+                </div>
           </div>
           </div>
           <!-- content-wrapper ends -->
