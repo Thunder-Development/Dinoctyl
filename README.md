@@ -1,7 +1,7 @@
 <hr>
 
 # Latest update: 12.5.0
-Heliactyl 12.5.0 has now released upgrading the design, fixing bugs and adding a brand new features
+Heliactyl 12.5.0 has now released upgrading the design, fixing bugs and adding a brand new features<br>
 • Stripe: Users may now purchase coins via Stripe straight from Heliactyl
 
 <hr>
