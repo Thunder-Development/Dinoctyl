@@ -1,5 +1,5 @@
 //
-// Heliactyl 12.3, Codename Rubik
+// Heliactyl 12.5, Codename Baklava
 // 
 //  * Copyright Sryden UK 2022
 //  * Please read the "License" file
@@ -119,7 +119,20 @@ app.use(express.json({
 
 const listener = app.listen(settings.website.port, function() {
   console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
-  console.log(chalk.green("Heliactyl V12 is now online at port " + listener.address().port + " "));
+  console.log(chalk.green("Heliactyl is online!"));
+  console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
+  console.log(chalk.green("Info | Port: " + settings.website.port));
+  console.log(chalk.green("Info | Version: v" + settings.version));
+  console.log(chalk.green("Info | Build: " + settings.build));
+  console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
+  console.log(chalk.green("Pterodactyl | Domain: " + settings.pterodactyl.domain));
+  console.log(chalk.green("Pterodactyl | Key: " + settings.pterodactyl.key));
+  console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
+  console.log(chalk.green("Linkvertise | User ID: " + settings.linkvertise.userid));
+  console.log(chalk.green("Linkvertise | Coins: " + settings.linkvertise.coins));
+  console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
+  console.log(chalk.green("Stripe | Key: " + settings.stripe.key));
+  console.log(chalk.green("Stripe | Coins: " + settings.stripe.coins));
   console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
 });
 
