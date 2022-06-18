@@ -39,14 +39,16 @@ module.exports.load = async function (app, db) {
     res.send(`
     <head>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nanobar/0.4.2/nanobar.js"></script>
-    <link href="https://fonts.cdnfonts.com/css/whitney" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
     <title>Please wait...</title>
     </head>
-    <body style="background-color: #111319; font-family: 'Whitney-Semibold', sans-serif;">
+    <body style="background-color: #111319; font-family: 'IBM Plex Sans', sans-serif;">
     <center>
       <br><br><br>
-      <h1 style="color: white">You are currently in the login queue, please wait...</h1>
-      <p style="color: #BBBBBB">Been stuck here for a while? You may need to re-login</p>
+      <h1 style="color: white">Logging in...</h1>
+      <p style="color: #BBBBBB">Please wait, you'll be redirected soon</p>
     </center>
     <script type="text/javascript" defer>
       history.pushState('/login', 'Logging in...', '/login')
