@@ -85,23 +85,23 @@
                   <div class="card-body">
                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="exampleInputUsername1">Server Name</label>
+                        <label for="exampleInputUsername1">Name:</label>
                         <input  style="border-radius: 15px; padding: 8px;" type="text" class="form-control" value="<%= serverinfo.attributes.name %> | Changing this will not do anything, use the panel">
                       </div>
                       <div class="form-group">
-                        <label for="InputCPU">CPU</label>
-                        <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputCPU" placeholder="120" value="<%= serverinfo.attributes.limits.cpu/100 %>">
+                        <label for="InputCPU">CPU (Cores):</label>
+                        <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputCPU" placeholder="1" value="<%= serverinfo.attributes.limits.cpu/100 %>">
                       </div>
                       <div class="form-group">
-                        <label for="InputRAM">RAM</label>
-                        <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputRAM" placeholder="2048" value="<%= serverinfo.attributes.limits.memory/1024 %>">
+                        <label for="InputRAM">RAM (GBs):</label>
+                        <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputRAM" placeholder="2" value="<%= serverinfo.attributes.limits.memory/1024 %>">
                       </div>
                       <div class="form-group">
-                        <label for="InputDisk">Disk</label>
-                        <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputDisk" placeholder="20480" value="<%= serverinfo.attributes.limits.disk/1024 %>">
+                        <label for="InputDisk">Disk (GBs):</label>
+                        <input style="border-radius: 15px; padding: 8px;" type="number" class="form-control" id="InputDisk" placeholder="5" value="<%= serverinfo.attributes.limits.disk/1024 %>">
                       </div>
                       <div class="form-group">
-                        <label for="InputEgg">Egg</label><BR>
+                        <label for="InputEgg">Egg:</label><BR>
                         <select class="btn btn-secondary dropdown-toggle" style="background-color: #2a3038; border: 1px solid #2c2e33; color: #e4eaec; border-radius: 15px; padding: 8px;" disabled>
                           <% for (let [name, value] of Object.entries(settings.api.client.eggs)) { %>
                             <option value="<%= name %>"><%= value.display %></option>
@@ -114,7 +114,7 @@
                 </div>
               </div>
             </div>
-          </div>
+         
           <% } else { %>
                 <p style="margin-left: 5%;">Could not find server with the provided ID.</p>
             <% } %>
