@@ -108,9 +108,8 @@
                             <option value="<%= name %>"><%= value.display %></option>
                           <% } %>
                         </select>
-                      </div>
-                      <a role="button" id="create-btn" class="btn btn-primary btn-lg" href="javascript: submitNew()">Deploy Server</a>
-                      <br><br><p style="text-muted">Your first server is free, after that it will cost <code style="color: #007fcc" ><%= settings.servercreation.cost %> coins</code>!</p>
+                      </div><br>
+                      <a role="button" id="create-btn" class="button"  href="javascript: submitNew()" onclick="this.classList.toggle('button--loading')"><span class="button__text">Deploy - <%= settings.servercreation.cost %> coins</span></a><br><br>
                     </form>
                   </div>
                 </div>
