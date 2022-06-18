@@ -4,7 +4,7 @@
     "redirect": {
         "callback": "/dashboard",
         "logout": "/",
-       	"createserver": "/servers?err=CREATED",
+        "createserver": "/servers?err=CREATED",
         "deleteserver": "/servers",
         "updateservers": "/servers",
         "failedcreateserver": "/servers/new",
@@ -53,10 +53,10 @@
         "settings": "settings.ejs",
         "gift": "gift.ejs",
         "j4r": "j4r.ejs",
+        "buy": "buy.ejs",
         "afk": "afk.ejs",
         "store": "store.ejs",
         "servers": "servers.ejs",
-        "credits": "credits.ejs",
         "lv": "lv.ejs"
     },
     "mustbeloggedin": [
@@ -80,8 +80,7 @@
     "variables": {
         "faviconlink": "https://cdn.discordapp.com/attachments/881207010417315861/949595064554913812/Copy_of_H_35.png",
         "home": {
-            "name": "Heliactyl",
-            "icon": "H",
+            "note": "Name & Icon have been moved to settings.json in Heliactyl 12.5.0",
             "admin": "admin",
             "buttontext": {
                 "loggedin": {
