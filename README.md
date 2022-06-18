@@ -1,4 +1,8 @@
-![Heliactyl](https://cdn.discordapp.com/attachments/881207010417315861/949706607497977976/heliactyl.png)
+<hr>
+
+# Latest update: 12.5.0
+Heliactyl 12.5.0 has now released upgrading the design, fixing bugs and adding a brand new features
+• Stripe: Users may now purchase coins via Stripe straight from Heliactyl
 
 <hr>
 
@@ -10,11 +14,12 @@ All features:
 - Renewal (Require coins for renewal)
 - Coupons (Gives resources & coins to a user)
 - Servers (create, view, edit servers)
+- Payments (buy via stripe)
 - Login Queue (prevent overload)
 - User System (auth, regen password, etc)
 - Store (buy resources with coins)
 - Dashboard (view resources)
-- Join for Resources (join discord servers for resources)
+- Join for Rewards (join discord servers for coins)
 - Admin (set/add/remove coins & resources, create/revoke coupons)
 - API (for bots & other things)
 
@@ -96,25 +101,24 @@ Move to a newer Heliactyl v12 release:
 4. Remove settings.json and database.sqlite
 5. Unzip the zip with your old settings.json and database.sqlite
 
-# Running In Background And on Startup
+# Running in background and on startup
 Installing [pm2](https://github.com/Unitech/pm2):
 - Run `npm install pm2 -g` on the vps
 
-Starting The Dashboard in Background:
-- Change directory to your Heliactyl Files Using `cd` command, 
-Example:- `cd /home/user/dash-files` 
-- To Start The App, Run `pm2 start index.js --name "heliactyl"`
-- To View Logs, Run `pm2 logs heliactyl`
+Starting the Dashboard in Background:
+- Change directory to your Heliactyl folder Using `cd` command, Example: `cd /var/www/heliactyl` 
+- To run Heliactyl, use `pm2 start index.js --name "heliactyl"`
+- To view logs, run `pm2 logs Heliactyl`
 
-Making the Dashboard Run on Startup:
-- Make Sure Your Dashboard is running in the background with the help of [pm2](https://github.com/Unitech/pm2)
-- You can check if your app is running in background with `pm2 list`
-- Once You Confirmed That your app us running in background, You Can Generate Startup script by
-  Running `pm2 startup` and `pm2 save`
-- Note: Supported Init Systems are `systemd`, `upstart`, `launchd`, `rc.d`
-- To Remove Your Dashboard Running on Startup, Run `pm2 unstartup`
+Making the dashboard runs on startup:
+- Make sure your dashboard is running in the background with the help of [pm2](https://github.com/Unitech/pm2)
+- You can check if Heliactyl is running in background with `pm2 list`
+- Once you confirmed that Heliactyl is running in background, you can create a startup script by running `pm2 startup` and `pm2 save`
+- Note: Supported init systems are `systemd`, `upstart`, `launchd`, `rc.d`
+- To stop your Heliactyl from running in the background, use `pm2 unstartup`
 
-To Stop The Dashboard Which is running in background, Use `pm2 stop heliactyl`
+To stop a currently running Heliactyl instance, use `pm2 stop heliactyl`
+
 # Legacy Deprecation Notice
 
 Heliactyl v6, v7, v8, v9, v10, v11 is now deprecated as listed in our Discord and should not be used.
