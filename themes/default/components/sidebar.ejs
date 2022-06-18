@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div style="background-color: #212530" class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-     <a style="color: white" class="sidebar-brand brand-logo" href="/dashboard"><%= extra.home.name %></a>
+     <a style="color: white" class="sidebar-brand brand-logo" href="/dashboard"><%= settings.name %></a>
     </div>
     <ul class="nav">
           <li class="nav-item nav-category">
@@ -54,6 +54,16 @@
           <span class="menu-title">Redeem Coupon</span>
         </a>
       </li>
+                  <% if (settings.stripe.enabled == true) { %>
+          <li class="nav-item nav-category">
+            <span class="nav-link text-white"><h4>Billing</h4></span>
+          </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="../buy">
+          <span class="menu-title">Buy Coins</span>
+        </a>
+      </li>
+                    <% } %>
           <li class="nav-item nav-category">
             <span class="nav-link text-white"><h4>Miscellaneous</h4></span>
           </li>
