@@ -19,9 +19,10 @@
                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                     <div class="card-body">
-                <h4>You are currently earning!</h4>
                 <p>Every <% if (settings.api.arcio["afk page"].every !== 1) { %><%= settings.api.arcio["afk page"].every %> seconds<% } else { %>second<% } %>, you will get <%= settings.api.arcio["afk page"].coins == 1 ? "a" : settings.api.arcio["afk page"].coins %> coin<%= settings.api.arcio["afk page"].coins == 1 ? "" : "s" %></p>
-                <p>Warning: You may be redirected back to the dashboard page if the page is frozen by the browser or there is an adblocker on</p>
+                <p>To view your current coin balance, click your username on the navigation bar</p>
+                <br>
+                <p>Websocket status: <code style="color: #007fcc;">Connected!</code></p>
                   <script>
                 <%- arcioafktext %>
             </script>
