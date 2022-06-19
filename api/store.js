@@ -1,5 +1,6 @@
 const indexjs = require("../index.js");
 const adminjs = require("./admin.js");
+const settings = require("../settings.json");
 const fs = require("fs");
 const ejs = require("ejs");
 const log = require('../misc/log')
@@ -31,7 +32,7 @@ module.exports.load = async function(app, db) {
       let ramcap = await db.get("ram-" + req.session.userinfo.id);
       ramcap = ramcap ? ramcap : 0;
         
-      if (ramcap + amount > 32) return res.redirect(failedcallback + "?err=MAXRAMEXCEETED");
+      if (ramcap + amount > settings.storelimits.ram) return res.redirect(failedcallback + "?err=MAXRAMEXCEETED");
 
       let per = newsettings.api.client.coins.store.ram.per * amount;
       let cost = newsettings.api.client.coins.store.ram.cost * amount;
@@ -95,7 +96,7 @@ module.exports.load = async function(app, db) {
       let diskcap = await db.get("disk-" + req.session.userinfo.id);
       diskcap = diskcap ? diskcap : 0;
         
-      if (diskcap + amount > 32000) return res.redirect(failedcallback + "?err=MAXDISKEXCEETED");
+      if (diskcap + amount > settings.storelimits.disk) return res.redirect(failedcallback + "?err=MAXDISKEXCEETED");
 
       let per = newsettings.api.client.coins.store.disk.per * amount;
       let cost = newsettings.api.client.coins.store.disk.cost * amount;
@@ -159,7 +160,7 @@ module.exports.load = async function(app, db) {
       let cpucap = await db.get("cpu-" + req.session.userinfo.id);
       cpucap = cpucap ? cpucap : 0;
         
-      if (cpucap + amount > 8) return res.redirect(failedcallback + "?err=MAXCPUEXCEETED");
+      if (cpucap + amount > settings.storelimits.cpu) return res.redirect(failedcallback + "?err=MAXCPUEXCEETED");
 
       let per = newsettings.api.client.coins.store.cpu.per * amount;
       let cost = newsettings.api.client.coins.store.cpu.cost * amount;
@@ -223,7 +224,7 @@ module.exports.load = async function(app, db) {
       let serverscap = await db.get("servers-" + req.session.userinfo.id);
       serverscap = serverscap ? serverscap : 0;
         
-      if (serverscap + amount > 16) return res.redirect(failedcallback + "?err=MAXSERVERSEXCEETED");
+      if (serverscap + amount > settings.storelimits.servers) return res.redirect(failedcallback + "?err=MAXSERVERSEXCEETED");
 
       let per = newsettings.api.client.coins.store.servers.per * amount;
       let cost = newsettings.api.client.coins.store.servers.cost * amount;
