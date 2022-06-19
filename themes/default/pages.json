@@ -30,7 +30,7 @@
         "failedpurchasecpu": "/store",	
         "purchaseservers": "/store",	
         "failedpurchaseservers": "/store",
-        "arcioerror": "/dashboard?err=arcio",
+        "arcioerror": "/afk",
         "missingorinvalidcouponcode": "/redeem",
         "successfullyredeemedcoupon": "/redeem",
         "couponcreationfailed": "/admin",
