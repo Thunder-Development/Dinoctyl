@@ -1,5 +1,5 @@
 {
-  "version": "12.5.0",
+  "version": "12.5.1",
   "name": "Heliactyl",
   "letter": "H",
   "defaulttheme": "default",
@@ -14,6 +14,13 @@
   "linkvertise": {
     "userid": "10000",
     "coins": 5
+  },
+  "storelimits": {
+    "note": "This is in GB, not MB (the first setting to use GB eh?)"
+    "ram": "32",
+    "disk": "128",
+    "cpu": "4",
+    "servers": "8"
   },
   "stripe": {
     "enabled": true,
