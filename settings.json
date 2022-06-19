@@ -16,7 +16,7 @@
     "coins": 5
   },
   "storelimits": {
-    "note": "This is in GB, not MB (the first setting to use GB eh?)"
+    "note": "This is in GB, not MB (the first setting to use GB eh?)",
     "ram": "32",
     "disk": "128",
     "cpu": "4",
