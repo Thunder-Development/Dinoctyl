@@ -382,6 +382,7 @@ module.exports.load = async function (app, db) {
 
     const createdServer = await db.get(`createdserver-${req.session.userinfo.id}`)
     return res.json({ created: createdServer ?? false, cost: settings.renewals.cost })
+  })
 };
 
 // Shurdown removed, hello Dennis btw. ExoticNodes is no more, so why not go to client.hival.net
