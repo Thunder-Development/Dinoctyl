@@ -1,9 +1,9 @@
 {
   "name": "Heliactyl",
-  "version": "12.5.0",
+  "version": "13.0.0",
   "description": "The best Pterodactyl client area.",
   "main": "index.js",
-  "author": "Sryden UK",
+  "author": "SrydenCloud Limited",
   "dependencies": {
     "@keyv/mongo": "^1.2.1",
     "@keyv/mysql": "^1.1.5",
@@ -29,5 +29,8 @@
   },
   "scripts": {
     "start": "nodemon index.js"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.6"
   }
 }

@@ -1,26 +1,21 @@
 {
-  "version": "12.5.2",
+  "version": "13.0.0-pre1",
   "name": "Heliactyl",
-  "letter": "H",
-  "defaulttheme": "default",
-  "website": {
-    "port": 25000,
-    "secret": "Default Secret (Change this to any string you want)"
-  },
+  "icon": "https://cdn.discordapp.com/attachments/987734229469253674/1000783847643959398/Copy_of_untitled_1.png",
+  "defaulttheme": "Heliactyl",
   "pterodactyl": {
-    "domain": "https://panel.example.com",
-    "key": "example"
+    "domain": "Pterodactyl URL",
+    "key": "Pterodactyl Client/Admin API Key with all permissions"
   },
-  "linkvertise": {
-    "userid": "10000",
-    "coins": 5
+  "website": {
+    "port": 8000,
+    "secret": "Example Secret"
   },
   "storelimits": {
-    "note": "This is in GB, not MB (the first setting to use GB eh?)",
-    "ram": "32",
-    "disk": "128",
-    "cpu": "4",
-    "servers": "8"
+    "ram": "8192",
+    "disk": "5120",
+    "cpu": "10240",
+    "servers": "4"
   },
   "stripe": {
     "enabled": true,
@@ -28,37 +23,41 @@
     "key": "100000000000000",
     "coins": 100
   },
+  "linkvertise": {
+    "userid": "10000",
+    "coins": 5
+  },
   "database": "sqlite://database.sqlite",
   "api": {
     "client": {
       "api": {
         "enabled": true,
-        "code": "Default API Key (Change this to any string you want)"
+        "code": "Example Key"
       },
       "j4r": {
         "enabled": true,
         "ads": [
           {
             "name": "Example server 1",
-            "invite": "https://discord.gg/example",
-            "id": "000000000000000000",
-            "coins": 100
+            "invite": "https://discord.gg/example1",
+            "id": "000000000000000001",
+            "coins": 200
           },
           {
             "name": "Example server 2",
-            "invite": "https://discord.gg/example",
-            "id": "000000000000000000",
+            "invite": "https://discord.gg/example2",
+            "id": "000000000000000002",
             "coins": 200
           }
         ]
       },
       "bot": {
-        "token": "Discord bot token here",
+        "token": "Discord bot token",
         "joinguild": {
           "_comment": "The Discord bot must be in these servers and have invite permissions. Automatic guild joining will not work unless role packages are configured correctly.",
-          "enabled": false,
+          "enabled": true,
           "guildid": [
-            "Guild ID 1"
+            "Example ID"
           ]
         }
       },
@@ -79,15 +78,15 @@
       },
       "oauth2": {
         "_comment": "Go to https://discord.dev/ and create an application to set these up.",
-        "id": "example",
-        "secret": "example",
-        "link": "https://client.example.com",
+        "id": "Example OAuth2 ID",
+        "secret": "Example OAuth2 Secret",
+        "link": "http://example.example.com:8000",
         "callbackpath": "/callback",
         "prompt": true,
         "ip": {
           "trust x-forwarded-for": true,
           "block": [],
-          "duplicate check": true
+          "duplicate check": false
         }
       },
       "ratelimits": {
@@ -102,6 +101,12 @@
         "/renew": 1,
         "/api/userinfo": 1
       },
+      "antivpn": {
+        "note": "EXPERIMENTAL! This may or may not work, For antivpn to work, generate an apikey on https://proxycheck.io/. If you put no key, Heliactyl will disable antivpn.",
+        "status": false,
+        "APIKey": "Proxycheck APIKey",
+        "whitelistedIPs": ["IP address"]
+      },
       "packages": {
         "default": "default",
         "list": {
@@ -114,15 +119,17 @@
         },
         "rolePackages": {
           "note": "This allows you to set a different plan to people who have a specific role however this requires the Discord bot to be configured and functioning. This is mainly used for Boost rewards",
-          "roleServer": "Server ID",
+          "roleServer": "000000000000000001",
           "roles": {
-            "Role ID": "Package Name"
+            "null": "null"
           }
         }
       },
       "locations": {
         "1": {
           "name": "Default Location",
+          "note": "Heliactyl now uses banners instead of a dropdown, you can use canva.com to create a banner to use. We also have a list of free location banners in the Heliactyl discord.",
+          "banner": "https://cdn.discordapp.com/attachments/987734229469253674/1000713851295256596/Copy_of_citric_2.png",
           "package": null
         }
       },
@@ -132,7 +139,7 @@
           "minimum": {
             "ram": 1024,
             "disk": 1024,
-            "cpu": 100
+            "cpu": 80
           },
           "maximum": {
             "ram": null,
@@ -178,6 +185,63 @@
               "backups": 4
             }
           }
+        },
+        "pmmp": {
+          "display": "Minecraft Bedrock | Pocketmine",
+          "how-to-enable": "Please add the egg to your panel from the Parkervcp GitHub repo and change the ID to the corresponding ID.",
+          "minimum": {
+            "ram": 512,
+            "disk": 512,
+            "cpu": 75
+          },
+          "maximum": {
+            "ram": null,
+            "disk": null,
+            "cpu": null
+          },
+          "info": {
+            "egg": 17,
+            "docker_image": "ghcr.io/parkervcp/yolks:debian",
+            "startup": "./bin/php7/bin/php ./PocketMine-MP.phar --no-wizard --disable-ansi",
+            "environment": {
+              "VERSION": "pm4"
+            },
+            "feature_limits": {
+              "databases": 4,
+              "backups": 4
+            }
+          }
+        },
+        "vanilla": {
+          "display": "Minecraft Bedrock | Vanilla",
+          "how-to-enable": "Please add the egg to your panel from the Parkervcp GitHub repo and change the ID to the corresponding ID.",
+          "minimum": {
+            "ram": 512,
+            "disk": 512,
+            "cpu": 75
+          },
+          "maximum": {
+            "ram": null,
+            "disk": null,
+            "cpu": null
+          },
+          "info": {
+            "egg": 16,
+            "docker_image": "ghcr.io/parkervcp/yolks:debian",
+            "startup": "./bedrock_server",
+            "environment": {
+              "BEDROCK_VERSION": "latest",
+              "LD_LIBRARY_PATH": ".",
+              "SERVERNAME": "Hival Bedrock Server",
+              "GAMEMODE": "survival",
+              "DIFFICULTY": "easy",
+              "CHEATS": "true"
+            },
+            "feature_limits": {
+              "databases": 4,
+              "backups": 4
+            }
+          }
         }
       },
       "coins": {
@@ -187,11 +251,11 @@
           "enabled": true,
           "ram": {
             "cost": 100,
-            "per": 100
+            "per": 1024
           },
           "disk": {
             "cost": 100,
-            "per": 100
+            "per": 1024
           },
           "cpu": {
             "cost": 100,
@@ -199,15 +263,15 @@
           },
           "servers": {
             "cost": 100,
-            "per": 100
+            "per": 1
           }
         }
       }
     },
     "arcio": {
-      "_comment": "You can make an arc.io widget on https://arc.io. You can get money using arc.io.",
+      "_comment": "ArcIO is now disabled due to their platform being abandoned, this is only here to keep the old arc afk page system functional.",
       "enabled": true,
-      "widgetid": "none",
+      "widgetid": "10000",
       "afk page": {
         "_comment": "This will not effect any current arc.io sessions, and will require a restart to kick everyone out of the websocket sesison.",
         "_comment2": "Make sure coins are enabled if you choose to enable this option!",
@@ -215,9 +279,9 @@
         "_comment3": "If you change the path, you need to restart for it to take full effect.",
         "path": "afkwspath",
         "_comment4": "This afk page will give the users [coins variable] coins every [every variable] seconds.",
-        "every": 15,
+        "every": 30,
         "_comment5": "The coins variable is meant to not be under 1. There may be bugs if the coins variable is less than 1.",
-        "coins": 0.10
+        "coins": 2
       }
     }
   },
@@ -225,7 +289,7 @@
     "note": "This allows only specific people to be able to use the dashboard",
     "status": false,
     "users": [
-      "User ID"
+      "Example ID"
     ]
   },
   "servercreation": {
@@ -265,7 +329,6 @@
     }
   },
   "antivpn": {
-    "note": "EXPERIMENTAL! This may or may not work, For antivpn to work, generate an apikey on https://proxycheck.io/. If you put no key, Heliactyl will disable antivpn.",
     "status": false,
     "APIKey": "Proxycheck APIKey",
     "whitelistedIPs": ["IP address"]

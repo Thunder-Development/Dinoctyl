@@ -1,5 +1,5 @@
 //
-// Heliactyl 12.5, Codename Baklava
+// Heliactyl 13, Codename Element
 // 
 //  * Copyright SrydenCloud Limited
 //  * Please read the "License" file
@@ -13,7 +13,7 @@ const fs = require("fs");
 const fetch = require('node-fetch');
 const chalk = require("chalk");
 const axios = require("axios");
-const arciotext = require('./stuff/arciotext')
+const arciotext = require('./System/arciotext')
 global.Buffer = global.Buffer || require('buffer').Buffer;
 
 if (typeof btoa === 'undefined') {
@@ -85,7 +85,7 @@ const Keyv = require("keyv");
 const db = new Keyv(settings.database);
 
 db.on('error', err => {
-  console.log(chalk.red("[DATABASE] An error has occured when attempting to access the database."))
+  console.log(chalk.red("Error: Cannot load database."))
 });
 
 module.exports.db = db;
@@ -118,9 +118,56 @@ app.use(express.json({
 }));
 
 const listener = app.listen(settings.website.port, function() {
-  console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
-  console.log(chalk.green("Heliactyl is online! You can now access the dashboard from the configured port"));
-  console.log(chalk.green("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――"));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉"));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.green("        Well done! Your Heliactyl instance is now online           "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("   If you experience a 502 Bad Gateway error, please note that     "));
+  console.log(chalk.white("        this is a proxy issue, not an issue with Heliactyl         "));
+  console.log(chalk.white("                                                                   "));
+  console.log(chalk.white("▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉"));
 });
 
 var cache = false;
@@ -150,10 +197,10 @@ app.use(function(req, res, next) {
 
 // Load the API files.
 
-let apifiles = fs.readdirSync('./api').filter(file => file.endsWith('.js'));
+let apifiles = fs.readdirSync('./Backend').filter(file => file.endsWith('.js'));
 
 apifiles.forEach(file => {
-  let apifile = require(`./api/${file}`);
+  let apifile = require(`./Backend/${file}`);
 	apifile.load(app, db);
 });
 
@@ -165,7 +212,7 @@ if (newsettings.api.arcio.enabled == true) req.session.arcsessiontoken = Math.ra
   if (theme.settings.mustbeloggedin.includes(req._parsedUrl.pathname)) if (!req.session.userinfo || !req.session.pterodactyl) return res.redirect("/login" + (req._parsedUrl.pathname.slice(0, 1) == "/" ? "?redirect=" + req._parsedUrl.pathname.slice(1) : ""));
   if (theme.settings.mustbeadmin.includes(req._parsedUrl.pathname)) {
     ejs.renderFile(
-      `./themes/${theme.name}/${theme.settings.notfound}`, 
+      `./Public/${theme.name}/${theme.settings.notfound}`, 
       await eval(indexjs.renderdataeval),
       null,
     async function (err, str) {
@@ -173,9 +220,9 @@ if (newsettings.api.arcio.enabled == true) req.session.arcsessiontoken = Math.ra
       delete req.session.password;
       if (!req.session.userinfo || !req.session.pterodactyl) {
         if (err) {
-          console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+          console.log(chalk.red(`Warning: An error occured while loading route ${req._parsedUrl.pathname}:`));
           console.log(err);
-          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+          return res.send("Failed to load page. The error has been logged to the console.");
         };
         res.status(200);
         return res.send(str);
@@ -190,9 +237,9 @@ if (newsettings.api.arcio.enabled == true) req.session.arcsessiontoken = Math.ra
       );
       if (await cacheaccount.statusText == "Not Found") {
         if (err) {
-          console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+          console.log(chalk.red(`Warning: An error occured while loading route ${req._parsedUrl.pathname}:`));
           console.log(err);
-          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+          return res.send("Failed to load page. The error has been logged to the console.");
         };
         return res.send(str);
       };
@@ -201,24 +248,24 @@ if (newsettings.api.arcio.enabled == true) req.session.arcsessiontoken = Math.ra
       req.session.pterodactyl = cacheaccountinfo.attributes;
       if (cacheaccountinfo.attributes.root_admin !== true) {
         if (err) {
-          console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+          console.log(chalk.red(`Warning: An error occured while loading route ${req._parsedUrl.pathname}:`));
           console.log(err);
-          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+          return res.send("Failed to load page. The error has been logged to the console.");
         };
         return res.send(str);
       };
 
       ejs.renderFile(
-        `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
+        `./Public/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
         await eval(indexjs.renderdataeval),
         null,
       function (err, str) {
         delete req.session.newaccount;
         delete req.session.password;
         if (err) {
-          console.log(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`);
+          console.log(`Warning: An error occured while loading route ${req._parsedUrl.pathname}:`);
           console.log(err);
-          return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+          return res.send("Failed to load page. The error has been logged to the console.");
         };
         res.status(200);
         res.send(str);
@@ -228,16 +275,16 @@ if (newsettings.api.arcio.enabled == true) req.session.arcsessiontoken = Math.ra
   };
     const data = await eval(indexjs.renderdataeval)
   ejs.renderFile(
-    `./themes/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
+    `./Public/${theme.name}/${theme.settings.pages[req._parsedUrl.pathname.slice(1)] ? theme.settings.pages[req._parsedUrl.pathname.slice(1)] : theme.settings.notfound}`, 
     data,
     null,
   function (err, str) {
     delete req.session.newaccount;
     delete req.session.password;
     if (err) {
-      console.log(chalk.red(`[WEBSITE] An error has occured on path ${req._parsedUrl.pathname}:`));
+      console.log(chalk.red(`Warning: An error occured while loading route ${req._parsedUrl.pathname}:`));
       console.log(err);
-      return res.send("An error has occured while attempting to load this page. Please contact an administrator to fix this.");
+      return res.send("Failed to load page. The error has been logged to the console.");
     };
     res.status(200);
     res.send(str);
@@ -249,15 +296,15 @@ module.exports.get = function(req) {
   let tname = encodeURIComponent(getCookie(req, "theme"));
   let name = (
     tname ?
-      fs.existsSync(`./themes/${tname}`) ?
+      fs.existsSync(`./Public/${tname}`) ?
         tname
       : defaulttheme
     : defaulttheme
   )
   return {
     settings: (
-      fs.existsSync(`./themes/${name}/pages.json`) ?
-        JSON.parse(fs.readFileSync(`./themes/${name}/pages.json`).toString())
+      fs.existsSync(`./Public/${name}/pages.json`) ?
+        JSON.parse(fs.readFileSync(`./Public/${name}/pages.json`).toString())
       : defaultthemesettings
     ),
     name: name
