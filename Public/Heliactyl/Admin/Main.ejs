@@ -54,7 +54,7 @@
 								<div class="card-body py-3">
                                     <p id="latestversion"><span>Fetching...</span></p>
                                     <script>
-										// This is just a Temporary solution due issues with your Web Hosting
+										// This is just a Temporary solution due issues with our Web Hosting
                                         fetch("https://rtzui.5687.webhost-05.my-host.network/version")
                                             .then(res => Promise.resolve(res.json()).then(ver => {
                                                 let currentver = "<%= settings.version.replace(/"/g, `\\\\"`) %>";
