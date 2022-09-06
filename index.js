@@ -1,7 +1,7 @@
 //
-// Heliactyl 13, Codename Element
+// Heliactyl 13.1, Codename Srydenless
 // 
-//  * Copyright SrydenCloud Limited
+//  * Copyright Ionic Group
 //  * Please read the "License" file
 //
 
