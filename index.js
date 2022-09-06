@@ -63,7 +63,6 @@ module.exports.renderdataeval =
       pterodactyl: req.session.pterodactyl,
       theme: theme.name,
       extra: theme.settings.variables,
-      addons: theme.settings.addons,
 	  db: db
     };
     if (newsettings.api.arcio.enabled == true && req.session.arcsessiontoken) {
