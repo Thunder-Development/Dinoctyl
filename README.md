@@ -12,7 +12,7 @@ Dinoctyl Is Better Version Of Heliactyl (Dashactyl Fork)
 
 # Documentation
 
-**Installation** : **__SOON**
+**Installation** : **__SOON__**
 
 **Configuration** : **__SOON__**
 
