@@ -6,6 +6,10 @@ Dinoctyl Is Better Version Of Heliactyl (Dashactyl Fork)
 
 **__SOON__**
 
+# Features
+
+**__SOON__**
+
 # Links
 
 **__SOON__**
